@@ -27,6 +27,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Switch Gradle distribution URL to official source
+      run: sed -i 's|https://mirrors.cloud.tencent.com/gradle/|https://services.gradle.org/distributions/|g' gradle/wrapper/gradle-wrapper.properties
+
     - name: Build with Gradle
       run: ./gradlew build
       env:
